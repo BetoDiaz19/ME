@@ -1,12 +1,10 @@
-// --- VARIABLES GLOBALES Y CARGA DE STORAGE ---
+
 let participantes = JSON.parse(localStorage.getItem("participantes")) || [];
 let excepciones = JSON.parse(localStorage.getItem("excepciones")) || [];
 
-// Variables temporales para el Drag and Drop de excepciones
 let dadorTemp = "";
 let receptorTemp = "";
 
-// --- CONFIGURACIÓN DEL EVENTO ---
 function setCelebracion(valor) {
     document.getElementById("celebracion").value = valor;
 }
@@ -31,7 +29,6 @@ function guardarEvento() {
 
     localStorage.setItem("evento", JSON.stringify(evento));
 
-    // Si el organizador participa, lo inicializamos en la lista de participantes
     if (participa) {
         if (!participantes.includes(organizador)) {
             participantes.push(organizador);
@@ -42,7 +39,7 @@ function guardarEvento() {
     window.location.href = "participantes.html";
 }
 
-// --- GESTIÓN DE PARTICIPANTES ---
+
 function agregarParticipante() {
     const input = document.getElementById("nombreParticipante");
     const nombre = input.value.trim();
@@ -78,15 +75,14 @@ function guardarParticipantes() {
     window.location.href = "excepciones.html";
 }
 
-// --- API DRAG AND DROP (PARA EXCEPCIONES) ---
+
 
 function allowDrop(ev) {
-    ev.preventDefault(); // Necesario para permitir soltar
+    ev.preventDefault(); 
     ev.target.style.border = "2px solid #2ecc71";
 }
 
 function drag(ev) {
-    // Guardamos el nombre del participante que se está arrastrando
     ev.dataTransfer.setData("nombre", ev.target.innerText);
 }
 
@@ -109,14 +105,14 @@ function confirmarExcepcion() {
     if (!dadorTemp || !receptorTemp) return alert("Arrastra nombres a ambos cuadros");
     if (dadorTemp === receptorTemp) return alert("No puedes excluir a alguien de sí mismo");
 
-    // Evitar duplicados
+
     const yaExiste = excepciones.some(e => e.de === dadorTemp && e.a === receptorTemp);
     if (yaExiste) return alert("Esta regla ya existe");
 
     excepciones.push({ de: dadorTemp, a: receptorTemp });
     localStorage.setItem("excepciones", JSON.stringify(excepciones));
     
-    // Limpiar visualmente
+
     dadorTemp = ""; receptorTemp = "";
     document.getElementById("dropDador").innerText = "Arrastra dador aquí";
     document.getElementById("dropReceptor").innerText = "Arrastra receptor aquí";
@@ -141,14 +137,14 @@ function eliminarExcepcion(index) {
     mostrarExcepciones();
 }
 
-// --- LÓGICA DEL SORTEO (RESPETANDO EXCEPCIONES) ---
+
 
 function realizarSorteo() {
     let intentos = 0;
     let exito = false;
     let asignaciones = [];
 
-    // Algoritmo de mezcla y validación
+
     while (!exito && intentos < 1000) {
         intentos++;
         let dadores = [...participantes];
@@ -161,8 +157,7 @@ function realizarSorteo() {
             let d = dadores[i];
             let r = receptores[i];
 
-            // REGLA 1: No regalarse a sí mismo
-            // REGLA 2: No estar en la lista de excepciones
+
             const esInvalido = d === r || excepciones.some(ex => ex.de === d && ex.a === r);
             
             if (esInvalido) {
@@ -188,7 +183,7 @@ function realizarSorteo() {
 
 function irASorteo() { window.location.href = "sorteo.html"; }
 
-// --- INICIALIZACIÓN POR PÁGINA ---
+
 window.onload = function() {
     if (document.getElementById("listaParticipantes")) mostrarParticipantes();
     
@@ -203,6 +198,6 @@ window.onload = function() {
     }
     
     if (document.getElementById("resultado")) {
-        // Estamos en la página de sorteo
     }
+
 };
