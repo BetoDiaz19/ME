@@ -1,0 +1,115 @@
+/* 1. FONDO Y TEXTO BASE */
+html, body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e2dec3 100%) !important;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    text-align: center;
+    /* TODAS LAS LETRAS EN VERDE */
+    color: #27ae60 !important; 
+}
+
+/* 2. NAVBAR */
+.navbar {
+    background: rgba(255, 255, 255, 0.4) !important;
+    backdrop-filter: blur(10px);
+}
+
+.navbar-brand, .nav-link {
+    color: #27ae60 !important;
+    font-weight: bold;
+}
+
+/* 3. SECCIÓN HERO (INDEX) */
+.hero-section {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-logo {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+/* 4. BOTONES AMARILLOS (Principales / Imagen 1) */
+.btn-principal, 
+button[onclick*="guardar"], 
+button[onclick*="continuar"], 
+button[onclick*="confirmar"],
+.chip {
+    background-color: #f8f22a !important; /* AMARILLO */
+    color: #333 !important; /* Texto oscuro para que se lea sobre amarillo */
+    border: none !important;
+    padding: 12px 30px !important;
+    border-radius: 8px !important;
+    font-weight: bold !important;
+    cursor: pointer;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* Forzar ancho compacto para botones principales en formularios */
+button[onclick*="guardar"], .btn-principal {
+    width: 300px !important;
+    display: block;
+    margin: 20px auto;
+}
+
+/* 5. BOTONES VERDES (Opciones a la par) */
+button {
+    background-color: #2ecc71 !important;
+    color: white !important;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover, .btn-principal:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+/* 6. INPUTS COMPACTOS */
+input, select {
+    padding: 10px;
+    margin: 10px auto !important;
+    border: 1px solid #27ae60;
+    border-radius: 8px;
+    width: 300px;
+    display: block;
+    color: #27ae60;
+}
+
+/* 7. EXCEPCIONES Y PANELES */
+.flex-container { 
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+    flex-wrap: wrap; 
+    padding: 20px; 
+}
+
+.panel { 
+    background: rgba(255, 255, 255, 0.5); 
+    border-radius: 12px; 
+    padding: 15px; 
+    width: 300px; 
+    border: 1px solid #27ae60; 
+}
+
+.drop-box { 
+    border: 2px dashed #27ae60; 
+    min-height: 60px; 
+    margin: 10px 0; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    border-radius: 10px;
+}
