@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Excepciones</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm mb-4">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center fw-bold text-primary" href="index.html">
+      <img src="logo.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top me-2">
+        Magic Exchange
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+    </div>
+  </div>
+</nav>
+
+<h1>Configurar Exclusiones</h1>
+
+<div class="flex-container">
+    <div class="panel">
+        <h3>Participantes</h3>
+        <p><small>Arrastra un nombre:</small></p>
+        <div id="listaArrastrable"></div>
+    </div>
+
+    <div class="panel">
+        <h3>Crear Regla</h3>
+        <div id="dropDador" class="drop-box" ondrop="drop(event, 'dador')" ondragover="allowDrop(event)">
+            Soltar Dador aquí
+        </div>
+        <span>no puede regalar a</span>
+        <div id="dropReceptor" class="drop-box" ondrop="drop(event, 'receptor')" ondragover="allowDrop(event)">
+            Soltar Receptor aquí
+        </div>
+        <button onclick="confirmarExcepcion()">Guardar Regla</button>
+    </div>
+
+    <div class="panel">
+        <h3>Reglas Activas</h3>
+        <ul id="listaExcepciones"></ul>
+    </div>
+</div>
+
+<button onclick="window.location.href='sorteo.html'">Ir al Sorteo</button>
+
+<script src="js/storage.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
