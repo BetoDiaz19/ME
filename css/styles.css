@@ -1,4 +1,4 @@
-/* 1. FONDO Y TEXTO BASE */
+
 html, body {
     min-height: 100vh;
     margin: 0;
@@ -6,11 +6,11 @@ html, body {
     background: linear-gradient(135deg, #f5f7fa 0%, #e2dec3 100%) !important;
     font-family: 'Segoe UI', Arial, sans-serif;
     text-align: center;
-    /* TODAS LAS LETRAS EN VERDE */
+
     color: #27ae60 !important; 
 }
 
-/* 2. NAVBAR */
+
 .navbar {
     background: rgba(255, 255, 255, 0.4) !important;
     backdrop-filter: blur(10px);
@@ -21,7 +21,7 @@ html, body {
     font-weight: bold;
 }
 
-/* 3. SECCIÓN HERO (INDEX) */
+
 .hero-section {
     height: 70vh;
     display: flex;
@@ -34,14 +34,14 @@ html, body {
     margin-bottom: 20px;
 }
 
-/* 4. BOTONES AMARILLOS (Principales / Imagen 1) */
+
 .btn-principal, 
 button[onclick*="guardar"], 
 button[onclick*="continuar"], 
 button[onclick*="confirmar"],
 .chip {
-    background-color: #f8f22a !important; /* AMARILLO */
-    color: #333 !important; /* Texto oscuro para que se lea sobre amarillo */
+    background-color: #f8f22a !important; 
+    color: #333 !important; 
     border: none !important;
     padding: 12px 30px !important;
     border-radius: 8px !important;
@@ -52,14 +52,14 @@ button[onclick*="confirmar"],
     text-decoration: none;
 }
 
-/* Forzar ancho compacto para botones principales en formularios */
+
 button[onclick*="guardar"], .btn-principal {
     width: 300px !important;
     display: block;
     margin: 20px auto;
 }
 
-/* 5. BOTONES VERDES (Opciones a la par) */
+
 button {
     background-color: #2ecc71 !important;
     color: white !important;
@@ -76,7 +76,7 @@ button:hover, .btn-principal:hover {
     transform: scale(1.05);
 }
 
-/* 6. INPUTS COMPACTOS */
+
 input, select {
     padding: 10px;
     margin: 10px auto !important;
@@ -87,7 +87,7 @@ input, select {
     color: #27ae60;
 }
 
-/* 7. EXCEPCIONES Y PANELES */
+
 .flex-container { 
     display: flex; 
     justify-content: center; 
@@ -112,4 +112,5 @@ input, select {
     align-items: center; 
     justify-content: center; 
     border-radius: 10px;
+
 }
